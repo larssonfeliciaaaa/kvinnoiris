@@ -17,7 +17,7 @@ const NotFoundPage = () => {
               <div className="flex flex-col justify-center mt-10">
                 <div className="pb-4 mb-4 border-b border-gray-300 sm:max-w-lg sm:pr-8 sm:py-4 sm:mt-0 sm:text-left">
                   <h1 className="mb-4 text-3xl font-medium text-gray-900 sm:text-4xl title-font">
-                    Sidan kunde ej hittas!
+                    Sidan kunde ej hittas
                   </h1>
 
                   <Link
