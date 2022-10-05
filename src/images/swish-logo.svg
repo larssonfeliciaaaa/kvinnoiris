@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 420 420" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>03 Symbol/Flat/Black/Swish_Symbol_Black_SVG</title>
+    <desc>Created with Sketch.</desc>
+    <g id="03-Symbol/Flat/Black/Swish_Symbol_Black" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Symbol/Black" fill="#9f7aea">
+            <g id="Right-Swirl" transform="translate(119.332186, 49.114212)">
+                <path d="M0,350.04439 C84.2884683,390.356195 188.31202,370.40599 251.156312,295.526341 C325.643824,206.7744 314.074361,74.4625171 225.315044,-5.68434189e-14 L166.309346,70.306361 C235.651961,128.480254 244.690771,231.848605 186.49762,301.186302 C140.096429,356.473463 63.6990439,374.933385 0,350.04439" id="Base-Shape" fill-rule="nonzero"></path>
+            </g>
+            <g id="Left-Swirl">
+                <path d="M300.254951,20.4289088 C215.966893,-19.8828961 111.943342,0.0668990353 49.0990489,74.9465478 C-25.3884633,163.698899 -13.8189999,296.010782 74.9399074,370.473299 L133.946015,300.166938 C64.6029903,241.993045 55.5645903,138.624694 113.757742,69.2865868 C160.158932,13.9994259 236.556317,-4.46049609 300.254951,20.4289088" id="Base-shape" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

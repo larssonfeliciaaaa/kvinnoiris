@@ -1,0 +1,683 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.menu-wrap .menu-logo {
+  position: relative;
+  left: 60px;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 300;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background-color: rgb(136, 102, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-wrap .hamburger > div::after,
+.menu-wrap .hamburger > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: inherit;
+  z-index: 1;
+  border-radius: 4px;
+  transition: transform 0.3s ease-in-out;
+}
+.menu-wrap .hamburger > div::after {
+  top: -8px;
+}
+.menu-wrap .hamburger > div::before {
+  top: 8px;
+}
+
+/* Animate toggle */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+.menu-wrap .toggler:checked + .hamburger > div::before,
+.menu-wrap .toggler:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(180deg);
+}
+/* animate on hover when not checked */
+.menu-wrap .toggler:not(:checked):hover + .hamburger > div::before {
+  transform: translateY(2px);
+}
+.menu-wrap .toggler:not(:checked):hover + .hamburger > div::after {
+  transform: translateY(-2px);
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-wrap .menu > div {
+  background-color: rgba(255, 255, 255, 0.97);
+  border-radius: 50%;
+  width: 300vw;
+  height: 300vw;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+
+  margin-top: 3rem;
+}
+
+.menu-wrap .menu > div > div {
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 330px) {
+  .menu-wrap .menu > div > div > ul > li > a {
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+}
+
+.leave-page {
+  z-index: 1000;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+}
+
+.hero h1 {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.1;
+}
+
+.hero .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("../images/birds.png");
+  background-size: cover;
+  background-position: center center;
+}
+.hero .hero-container {
+  margin-top: 60px;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(61, 46, 89, 0.8);
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: 660px;
+  }
+}
+
+#menu {
+  transition: transform 3s ease;
+  position: relative;
+  height: 500px;
+  z-index: 100;
+}
+
+#menu-toggle:checked + #menu {
+  display: block;
+  transform: translateY(0);
+  height: auto;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about,
+.jouren,
+.engage {
+  position: relative;
+}
+
+.about li,
+.jouren li,
+.engage li {
+  width: 100%;
+  height: 100%;
+}
+
+.about li:hover,
+.jouren li:hover,
+.engage li:hover {
+  background-color: #ffffff;
+}
+
+.about li:hover a,
+.jouren li:hover a,
+.engage li:hover a {
+  color: #9f7aea;
+}
+
+.about ul {
+  width: 220px;
+  height: 120px;
+}
+
+.jouren ul {
+  width: 220px;
+  height: 200px;
+}
+.engage ul {
+  width: 220px;
+  height: 120px;
+}
+
+.about ul,
+.jouren ul,
+.engage ul {
+  position: absolute;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.1s ease;
+  z-index: 100;
+  border-radius: 8px;
+}
+
+.about button:focus,
+.jouren button:focus,
+.engage button:focus {
+  outline: none;
+}
+
+.about button:hover + ul,
+.about button:focus + ul,
+.jouren button:hover + ul,
+.jouren button:focus + ul,
+.engage button:hover + ul,
+.engage button:focus + ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-7px);
+}
+
+.about button + ul:hover,
+.about button + ul:focus-within,
+.jouren button + ul:hover,
+.jouren button + ul:focus-within,
+.engage button + ul:hover,
+.engage button + ul:focus-within {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-7px);
+}
+
+.about-hero {
+  background-image: url("../images/womanline.png");
+  width: 100%;
+  height: 340px;
+  background-position: center bottom;
+  background-size: 600px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.post-hero {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.post-thumbnail-wrapper {
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  height: 600px;
+  max-height: 400px;
+  max-width: 600px;
+
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.post-hero-breadcrumb {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.post-body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+.contact-hero {
+  background-image: url("../images/contact-1.svg");
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.valdmotkvinnor-hero {
+  background-image: url("../images/woman.png");
+  background-repeat: no-repeat;
+  height: 280px;
+  background-position: center;
+  background-size: 100%;
+  background-color: #000000;
+  max-width: 1270px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.valdmotkvinnor-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.notfound-hero {
+  background-image: url("../images/womanpattern.png");
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-size: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.notfound-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.engage-hero {
+  background-image: url("../images/womanpattern.png");
+  width: 100%;
+  height: 300px;
+  background-position: center center;
+  background-size: 400px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.engage-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.aktuellt-hero {
+  background-image: url("../images/womanpattern.png");
+  width: 100%;
+  height: 300px;
+  background-position: center center;
+  background-size: 400px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.aktuellt-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.tantjouren-hero {
+  background-image: url("../images/tantjourenhero.jpg");
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.tantjouren-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.tjejjouren-hero {
+  background-image: url("../images/tjejjouren.png");
+  width: 100%;
+  height: 300px;
+  background-position: left;
+  background-size: 400px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.tjejjouren-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.breadcrumb {
+  font-family: "Poppins", sans-serif;
+}
+
+.call-us-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 100%;
+  z-index: 49;
+  overflow: hidden;
+}
+
+.call-us-banner-container .inner:hover {
+  -webkit-clip-path: circle(75%);
+  clip-path: circle(75%);
+}
+
+.call-us-banner-container .inner {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 330px;
+  -webkit-clip-path: circle(15% at 85% 72%);
+  clip-path: circle(15% at 85% 72%);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: callusbanneranimation 3s;
+  animation: callusbanneranimation 3s;
+}
+
+.call-us-banner-container .inner svg {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  padding-left: 1.6rem;
+  margin-bottom: 0.4rem;
+  width: 8rem;
+}
+
+.call-us-banner-container .inner p {
+  line-height: 1.4;
+}
+
+.call-us-banner-container .inner a {
+  display: inline-block;
+  background-color: #f0eaff;
+  border-radius: 20px;
+  padding: 7px;
+  margin-top: 0.5rem;
+}
+
+.call-us-banner-heading {
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.call-us-banner-text {
+  font-size: 1.2rem;
+}
+
+.call-us-banner-phone {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #805ad5;
+  background-color: #f0eaff;
+}
+
+.container-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 800px) {
+  .call-us-banner {
+    bottom: 4rem;
+    right: 4rem;
+  }
+  .post-hero {
+    margin-top: 5rem;
+  }
+}
+
+@-webkit-keyframes callusbanneranimation {
+  0% {
+    -webkit-clip-path: circle(15% at 85% 72%);
+    clip-path: circle(15% at 85% 72%);
+  }
+  2% {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+  }
+
+  90% {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+  }
+  100% {
+    -webkit-clip-path: circle(15% at 85% 72%);
+    clip-path: circle(15% at 85% 72%);
+  }
+}
+
+@keyframes callusbanneranimation {
+  0% {
+    -webkit-clip-path: circle(15% at 85% 72%);
+    clip-path: circle(15% at 85% 72%);
+  }
+  2% {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+  }
+
+  90% {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+  }
+  100% {
+    -webkit-clip-path: circle(15% at 85% 72%);
+    clip-path: circle(15% at 85% 72%);
+  }
+}
+
+@media (max-width: 600px) {
+  .valdmotkvinnor-hero {
+    /* offset header hight */
+    top: 60px;
+    height: 150px;
+  }
+}
+
+.post-wrapper h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.post-wrapper h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-wrapper a {
+  color: #9f7aea;
+}
+
+.post-wrapper p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
